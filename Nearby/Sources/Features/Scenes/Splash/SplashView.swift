@@ -34,8 +34,8 @@ class SplashView: UIView {
     }()
     
     private func setupUI() {
-        self.addSubview(logoImageView)
-        self.addSubview(backgroundImage)
+        addSubview(logoImageView)
+        addSubview(backgroundImage)
         setupConstraint()
     }
     
