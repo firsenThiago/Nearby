@@ -9,9 +9,12 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     let contentView: WelcomeView
-    
-    init(contentView: WelcomeView) {
+    weak var delegate: HomeViewFlowDelegate?
+
+    init(contentView: WelcomeView,
+         delegate: HomeViewFlowDelegate) {
         self.contentView = contentView
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,7 +30,13 @@ class WelcomeViewController: UIViewController {
     private func setup() {
         self.view.addSubview(contentView)
         self.view.backgroundColor = Colors.gray100
+        contentView.startButton.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
         setupConstraint()
+    }
+    
+    @objc
+    private func didTapStartButton() {
+        delegate?.navigateToHome()
     }
     
     private func setupConstraint() {

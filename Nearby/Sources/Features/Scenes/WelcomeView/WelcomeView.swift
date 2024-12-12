@@ -50,7 +50,7 @@ class WelcomeView: UIView {
         return stackView
     }()
     
-    private let startButton: UIButton = {
+    public let startButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Começar", for: .normal)
         button.backgroundColor = Colors.greenBase
